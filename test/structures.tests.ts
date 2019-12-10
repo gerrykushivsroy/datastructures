@@ -12,7 +12,29 @@ describe("Data structures", () => {
         it("isEmpty", () => {
             const queue = new Queue();
             const result = queue.isEmpty();
-            expect(result).to.equal(false);
+            expect(result).to.equal(true);
+        })
+
+        it("poll when queue is empty", () => {
+            const queue = new Queue();
+            const result = queue.poll();
+            expect(result).to.equal(undefined);
+        })
+
+        it("enque and peek value 3", () => {
+            const queue = new Queue();
+            queue.enqueue(3);
+            const result = queue.peek();
+            expect(result).to.equal(3);
+        })
+
+        it("enque and pool value 69", () => {
+            const queue = new Queue();
+            queue.enqueue(69);
+            queue.enqueue(420);
+            queue.enqueue(21); 
+            const result = queue.peek();
+            expect(result).to.equal(69);
         })
 
     })

@@ -1,19 +1,26 @@
 import { IDataScructure } from "./IDataStructure";
 
 export class Queue implements IDataScructure {
+
+    private items = []; 
+
     enqueue(value: any) {
-        throw new Error("Method not implemented.");
+        this.items.push(value);
     }
     peek(): void {
-        throw new Error("Method not implemented.");
+        return this.items[0];
     }
-    poll(): void {
-        throw new Error("Method not implemented.");
+    poll(): any {
+        return this.items.shift();
     }
     isEmpty(): boolean {
+        if (this.size() == 0)
+        {
+            return true;
+        }
         return false;
     }
     public size(): number {
-        return 0;
+        return this.items.length;
     }
 }
