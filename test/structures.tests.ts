@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import { Queue } from "../lib/Queue";
+import { Stack } from "../lib/Stack";
 
 describe("Data structures", () => {
     describe("Queue", () => {
@@ -37,8 +38,42 @@ describe("Data structures", () => {
             expect(result).to.equal(69);
         })
 
-    })
+        describe("Stack", () => {
+            it("has size", () => {
+                const stack = new Stack();
+                const result = stack.size();
+                expect(result).to.equal(0);
+            })
+    
+            it("isEmpty", () => {
+                const stack = new Stack();
+                const result = stack.isEmpty();
+                expect(result).to.equal(true);
+            })
+    
+            it("poll when queue is empty", () => {
+                const stack = new Stack();
+                const result = stack.poll();
+                expect(result).to.equal(undefined);
+            })
+    
+            it("enque and peek value 3", () => {
+                const stack = new Stack();
+                stack.enqueue(3);
+                const result = stack.peek();
+                expect(result).to.equal(3);
+            })
+    
+            it("enque and poll value 21", () => {
+                const stack = new Stack();
+                stack.enqueue(69);
+                stack.enqueue(420);
+                stack.enqueue(21); 
+                const result = stack.poll();
+                expect(result).to.equal(21);
+            })
 
+    })
 
     // describe("Factory", () => {
     //     it("can create Queue", () => {
@@ -47,4 +82,5 @@ describe("Data structures", () => {
     //         expect(result).to.be.an.instanceOf(Queue);
     //     })
     // })
-})
+
+})})
